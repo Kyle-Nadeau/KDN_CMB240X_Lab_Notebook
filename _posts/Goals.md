@@ -1,12 +1,12 @@
 ---
 layout: post
-title: Assessing expression of methylation genes
-date: '2020-07-28'
+title: CMB 240 Course Goals
+date: '2021-02-09'
 categories: Code
 tags: [bioinformatics, genomics]
 ---
 
-# Goal: extract blast hits to DNMT3a, DNMT1, TET1 in Mcap and Pdam
+Goals:  I am hoping to better my coding skills!
 
 ## Proteins of Interest
 	>sp|Q1LZ53|DNM3A_RAT DNA (cytosine-5)-methyltransferase 3A OS=Rattus norvegicus OX=10116 GN=Dnmt3a PE=1 SV=1
@@ -26,7 +26,7 @@ tags: [bioinformatics, genomics]
 	VSAAHRARYFWGNLPGMNRPLASTVNDKLELQECLEHGRIAKFSKVRTITTRSNSIKQGK
 	DQHFPVFMNEKEDILWCTEMERVFGFPVHYTDVSNMSRLARQRLLGRSWSVPVIRHLFAP
 	LKEYFACV
-	
+
 	>sp|Q92072|DNMT1_CHICK DNA (cytosine-5)-methyltransferase 1 OS=Gallus gallus OX=9031 GN=DNMT1 PE=1 SV=1
 	MPARSAPPPPALPPALRRRLRDLERDEDSLSEKETLQEKLRLTRGFLRAEVQRRLSALDA
 	DVRCRELSEERYLAKVKALLRRELAAENGDAAKLFSRASNGCAGNGEEEWERGGRGEDGA
@@ -54,7 +54,7 @@ tags: [bioinformatics, genomics]
 	RSSSGALRGVCSCAEGKPCDPADRQFNTLIPWCLPHTGNRHNHWAGLYGRLEWDGFFSTT
 	VTNPEPMGKQGRVLHPEQHRVVSVRECARSQGFPDTYRLFGNILDKHRQVGNAVPPPLAK
 	AIGLEIRACVGARMREESGAAVAPPAPEKMEMTAAAD
-	
+
 	>sp|Q3URK3|TET1_MOUSE Methylcytosine dioxygenase TET1 OS=Mus musculus OX=10090 GN=Tet1 PE=1 SV=2
 	MSRSRPAKPSKSVKTKLQKKKDIQMKTKTSKQAVRHGASAKAVNPGKPKQLIKRRDGKKE
 	TEDKTPTPAPSFLTRAGAARMNRDRNQVLFQNPDSLTCNGFTMALRRTSLSWRLSQRPVV
@@ -95,7 +95,7 @@ tags: [bioinformatics, genomics]
 
 ## Make Mcap blastdb
 
-	/Applications/ncbi-blast-2.6.0+/bin/makeblastdb -in /Users/hputnam/MyProjects/Holobiont_Integration/RAnalysis/Data/Transcriptomics/Mcapitata_holotranscriptome_data_v1/Montipora_capitata_v1_gene_models_coding.pep.faa -dbtype prot 
+	/Applications/ncbi-blast-2.6.0+/bin/makeblastdb -in /Users/hputnam/MyProjects/Holobiont_Integration/RAnalysis/Data/Transcriptomics/Mcapitata_holotranscriptome_data_v1/Montipora_capitata_v1_gene_models_coding.pep.faa -dbtype prot
 
 ## Blast Uniprot proteins against all Mcap coding gene models
 	/Applications/ncbi-blast-2.6.0+/bin/blastp -query /Users/hputnam/MyProjects/Mcap_Genome/Mcap_Genome_Files/DNMTs_TET.fa \
@@ -105,8 +105,8 @@ tags: [bioinformatics, genomics]
 	-evalue 1e-05 \
 	-out Mcap_DNMT_TET_hits_10  
 
-## Mcap Results	
-	
+## Mcap Results
+
 	qseqid sseqid pident length mismatch gapopen qstart qend sstart send evalue bitscore
 	DNMT3A  sp|Q1LZ53|DNM3A_RAT     Montipora_capitata_PredGene_g25804.t1   47.251  673     313     9       267     907     50      712     0.0     622
 	DNMT3A  sp|Q1LZ53|DNM3A_RAT     Montipora_capitata_PredGene_g25804.t1.1.5eba3f22        49.393  577     255     7       360     907     4       572     0.0     563
@@ -134,7 +134,7 @@ tags: [bioinformatics, genomics]
 
 ## Make Pact blastdb
 
-	/Applications/ncbi-blast-2.6.0+/bin/makeblastdb -in /Users/hputnam/MyProjects/Holobiont_Integration/RAnalysis/Data/Transcriptomics/Pacuta_holotranscriptome_data_v1/Pocillopora_acuta_v1_gene_models_coding.pep.faa -dbtype prot 
+	/Applications/ncbi-blast-2.6.0+/bin/makeblastdb -in /Users/hputnam/MyProjects/Holobiont_Integration/RAnalysis/Data/Transcriptomics/Pacuta_holotranscriptome_data_v1/Pocillopora_acuta_v1_gene_models_coding.pep.faa -dbtype prot
 
 ## Blast Uniprot proteins against all Pact coding gene models
 	/Applications/ncbi-blast-2.6.0+/bin/blastp -query /Users/hputnam/MyProjects/Mcap_Genome/Mcap_Genome_Files/DNMTs_TET.fa \
@@ -143,8 +143,8 @@ tags: [bioinformatics, genomics]
 	-max_target_seqs 10 \
 	-evalue 1e-05 \
 	-out Pact_DNMT_TET_hits_10
-	
-## Pact Results	
+
+## Pact Results
 
 	qseqid sseqid pident length mismatch gapopen qstart qend sstart send evalue bitscore
 	sp|Q1LZ53|DNM3A_RAT     Pocillopora_acuta_PredGene_TCONS_00029688.p1    48.086  653     296     7       286     907     78      718     0.0     620
@@ -173,5 +173,3 @@ tags: [bioinformatics, genomics]
 	sp|Q3URK3|TET1_MOUSE    Pocillopora_acuta_PASA_asmbl_174290.p1  56.725  171     69      2       1494    1664    6       171     1.36e-56        216
 	sp|Q3URK3|TET1_MOUSE    Pocillopora_acuta_PASA_asmbl_174290.p1  57.971  69      29      0       1884    1952    454     522     3.34e-14        79.7
 	sp|Q3URK3|TET1_MOUSE    Pocillopora_acuta_PASA_asmbl_174293.p1  57.971  69      29      0       1884    1952    274     342     1.72e-14        80.5
-	
-
